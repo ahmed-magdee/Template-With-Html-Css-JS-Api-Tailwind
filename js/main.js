@@ -170,20 +170,6 @@ function createMoreDivs(allData) {
   })
 }
 
-// Function To Paste The Text
-
-let pasteText = document.querySelector('.paste-text')
-pasteText.onclick = () => {
-  navigator.clipboard.readText().then((text) => {
-    input.value = ''
-    input.value = text
-    console.log(text)
-  }),
-    (err) => {
-      console.log(err)
-    }
-}
-
 // Stop The Right Click and The Keyboard Buttons Code
 document.addEventListener('contextmenu', (e) => e.preventDefault())
 function ctrlShiftKey(e, keyCode) {
@@ -199,4 +185,20 @@ document.onkeydown = (e) => {
   ) {
     return false
   }
+}
+
+// Function To Paste The Text
+
+let pasteText = document.querySelector('.paste-text')
+pasteText.onclick = () => {
+  navigator.clipboard.readText().then((text) => {
+    input.value = ''
+    input.select() // select the input field
+    input.setSelectionRange(0, 99999)
+    input.value = text
+    console.log(text)
+  }),
+    (err) => {
+      console.log(err)
+    }
 }
