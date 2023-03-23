@@ -31,7 +31,6 @@ sendDataButton.addEventListener('click', (e) => {
               fullData[0].meta.source.slice(0, 25) ===
               'https://www.instagram.com'
             ) {
-              console.log('instagram')
               createMoreDivs(fullData)
             }
           } else {
@@ -132,8 +131,6 @@ function createMoreDivs(allData) {
   // console.log(allData.length)
   // console.log(allData)
   allData.forEach((oneData) => {
-    console.log(oneData)
-    console.log(oneData.url[0].type)
     if (
       oneData.url[0].type === 'mp4' ||
       oneData.url[0].type === 'jpg' ||
@@ -171,7 +168,7 @@ function createMoreDivs(allData) {
 }
 
 // Stop The Right Click and The Keyboard Buttons Code
-document.addEventListener('contextmenu', (e) => e.preventDefault())
+// document.addEventListener('contextmenu', (e) => e.preventDefault())
 function ctrlShiftKey(e, keyCode) {
   return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0)
 }
@@ -196,9 +193,6 @@ pasteText.onclick = () => {
     input.select() // select the input field
     input.setSelectionRange(0, 99999)
     input.value = text
-    console.log(text)
   }),
-    (err) => {
-      console.log(err)
-    }
+    (err) => {}
 }
